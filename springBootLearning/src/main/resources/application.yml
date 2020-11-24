@@ -1,0 +1,26 @@
+#使用druid的初始化
+#jdbc:
+#  driverClassName:  com.mysql.cj.jdbc.Driver
+#  url:  jdbc:mysql:///db1?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+#  username:  root
+#  password:  1289
+
+
+spring:
+# 导入其他的配置文件，在这里导入的是application-abc.yml
+  profiles:
+  active:  abc
+# 使用springBoot自带的hikari数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///db1?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 1289
+# 设置tomcat的默认端口
+server:
+  port:  80
+# 使用mybatis的自动匹配
+mybatis:
+  type-aliases-package: com.springBootLearning.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
