@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///db1?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 1289
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+server:
+  port:  80
+mybatis:
+  type-aliases-package: com.springBootLearning.pojo
