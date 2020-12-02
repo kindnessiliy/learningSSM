@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--标准头-->
+<mapper namespace="com.mybatis.mapper.CustomerMapper">
+    <resultMap id="customerMap" type="customer">
+        <id column="customer_id" property="customer_id"></id>
+        <!--配置集合信息
+            property：当前集合中的数据
+            ofType：当前集合中的数据类型
+        -->
+        <collection property="orderList" ofType="order">
+            <id column="order_id" property="id"/>
+        </collection>
+    </resultMap>
+    <select id="find" resultMap="customerMap">
+        select * from orders o,customers cu where o.customer_id = cu.customer_id;
+    </select>
+</mapper>

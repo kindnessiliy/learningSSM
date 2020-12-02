@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--标准头-->
+<mapper namespace="com.mybatis.mapper.OrderMapper">
+    <resultMap id="orderMap" type="order">
+    <!--指定字段与实体属性的映射关系
+        column：数据表字段名称
+        property：实体的属性名称
+     -->
+        <id column="order_id" property="id"></id>
+        <result column="order_date" property="date"></result>
+        <result column="status" property="status"></result>
+<!--        <result column="customer_id" property="customer.customer_id"></result>-->
+<!--        <result column="first_name" property="customer.first_name"></result>-->
+<!--        <result column="last_name" property="customer.last_name"></result>-->
+<!--        <result column="phone" property="customer.phone"></result>-->
+        <!--property：当前实体（Order）中的属性名称；javaType：当前实体（order）中的属性类型（Customer）-->
+        <association property="customer" javaType="customer">
+            <id column="customer_id" property="customer_id"/>
+            <result column="phone" property="phone"/>
+            <result column="first_name" property="first_name"/>
+            <result column="last_name" property="last_name"/>
+        </association>
+    </resultMap>
+    <select id="find" resultMap="orderMap">
+        select * from orders o,customers cu where o.customer_id=cu.customer_id;
+    </select>
+</mapper>

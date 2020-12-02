@@ -1,0 +1,6 @@
+org\controller\UserController.class
+org\dao\UserDao.class
+org\service\impl\UserServiceImpl.class
+org\domain\User.class
+org\dao\impl\UserDaoImpl.class
+org\service\UserService.class
