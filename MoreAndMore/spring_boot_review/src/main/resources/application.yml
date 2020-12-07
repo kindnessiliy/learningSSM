@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///db1?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 1289
+mybatis:
+  type-aliases-package: com.example.domain
+server:
+  port: 80
+swagger:
+  enabled: true
+  title: spring-boot-starter-swagger
+  description: learning swagger
+  version: 1.4.0.RELEASE
+  license: Apache License, Version 2.0
+  license-url: https://www.apache.org/licenses/LICENSE-2.0.html
+  terms-of-service-url: https://github.com/dyc87112/spring-boot-starter-swagger
+  base-package: com.learning
+  base-path:
+    - /**
